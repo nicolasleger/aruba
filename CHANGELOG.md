@@ -12,13 +12,19 @@ Please see [CONTRIBUTING.md] on how to contribute to Aruba.
 
 ### Added
 
+* Allow `#expand_path` to be used with absolute paths. This will emit a warning,
+  which can be silenced with a configuration option ([#540] by [mvz])
+* Allow decimal seconds in Cucumber steps that set Aruba timeout values ([#544]
+  by [mvz])
+
 ### Changed
 
 * Rename History.md to CHANGELOG.md and fix links and formatting, etc. to bring
-  it in line with [cucumber/cucumber#521]
-  ([#481], [#482] by [jaysonesmith])
-* Improve documentation for users and developers
-  ([#454], [#456], [#457], [#460], [#459], [#461], [#494] by [olleolleolle] and [maxmeyer])
+  it in line with [cucumber/cucumber#521] ([#481], [#482] by [jaysonesmith])
+* Improve documentation for users and developers ([#454], [#456], [#457], [#460],
+  [#459], [#461], [#494], [#543] by [olleolleolle], [maxmeyer], [mvz])
+* Improve output of `#have_output` matcher ([#546] by [mvz])
+* Update dependencies ([#541] by [mvz])
 
 ### Removed
 
@@ -27,9 +33,13 @@ Please see [CONTRIBUTING.md] on how to contribute to Aruba.
 ### Fixed
 
 * Fix UTF-8 issues with jRuby ([#462] [stamhankar999])
-* Fix bugs in Travis build ([#452], [#487], [#476], [#492] by [maxmeyer] and [mvz])
+* Fix test suite failures ([#452], [#487]  by [maxmeyer] and [mvz])
+* Fix Travis-specific build failures ([#476], [#493], [#536] by [maxmeyer] and [mvz])
 * Fix YARD documentation issues ([#491] [olleolleolle])
-
+* Speed up feature suite ([#544] [mvz])
+* Avoid duplicate output appearing in certain cases ([#517] by [maxmeyer] and [mvz])
+* Fix some RuboCop offenses ([#537] by [mvz])
+* Fix `@no-clobber` breaking process management ([#535] by [doudou])
 
 ## [v1.0.0-alpha.2]
 
@@ -60,7 +70,7 @@ Please see [CONTRIBUTING.md] on how to contribute to Aruba.
 * Fixed use of removed `Utils`-module ([#347], [e2])
 * Fixed exception handler in BasicProcess ([#357], [e2])
 * Fixed step to check for existing of files ([#375], [rubbish])
-* Fixed unset instance variable (#[#372], [e2])
+* Fixed unset instance variable ([#372], [e2])
 * Added vision and hints to project README ([#366])
 * Fixed setting environment variables on Windows ([#358], [e2])
 * Fixed the logic to determine disk usage ([#359], [e2])
@@ -382,7 +392,7 @@ Please see [CONTRIBUTING.md] on how to contribute to Aruba.
 * Make matcher have_permisions public and add documentation ([#239])
 * Added matcher for file content ([#238])
 * Add rspec integrator ([#244])
-* Deprecate _file/_directory in method names ([#243])
+* Deprecate `_file` and `_directory` in method names ([#243])
 * Improve development environment ([#240])
 * Cleanup process management ([#257])
 * Make path content available through matchers and api metchods ([#250])
@@ -460,7 +470,8 @@ Please see [CONTRIBUTING.md] on how to contribute to Aruba.
 
 ## [v0.4.5]
 
-* Better assertion failure message when an exit code is not as expected. ([mattwynne])
+* Better assertion failure message when an exit code is not as expected.
+  ([mattwynne])
 
 ## [v0.4.4]
 
@@ -468,11 +479,13 @@ Please see [CONTRIBUTING.md] on how to contribute to Aruba.
 
 ## [v0.4.3]
 
-* Aruba reporting now creates an index file for reports, linking them all together. ([aslakhellesoy])
+* Aruba reporting now creates an index file for reports, linking them all
+  together. ([aslakhellesoy])
 
 ## [v0.4.2]
 
-* Appending to a file creates the parent directory if it doesn't exist. ([aslakhellesoy])
+* Appending to a file creates the parent directory if it doesn't exist.
+  ([aslakhellesoy])
 
 ## [v0.4.1]
 
@@ -480,24 +493,29 @@ Please see [CONTRIBUTING.md] on how to contribute to Aruba.
 
 ## [v0.4.0]
 
-* New, awesome HTML reporting feature that captures everything that happens during a scenario. ([aslakhellesoy])
-* ANSI escapes from output are stripped by default. Override this with the @ansi tag. ([aslakhellesoy])
+* New, awesome HTML reporting feature that captures everything that happens
+  during a scenario. ([aslakhellesoy])
+* ANSI escapes from output are stripped by default. Override this with the @ansi
+  tag. ([aslakhellesoy])
 
 ## [v0.3.7]
 
-* Make Aruba::Api#get_process return the last executed process with passed cmd ([greyblake])
+* Make Aruba::Api#get_process return the last executed process with passed cmd
+  ([greyblake])
 * Replace announce with puts to comply with cucumber 0.10.6 ([aslakhellesoy])
 * Fix childprocess STDIN to be synchronous ([#40], [#71], [lithium3141])
 
 ## [v0.3.6]
 
 * Changed default value of @aruba_timeout_seconds from 1 to 3. ([aslakhellesoy])
-* Separate hooks and steps to make it easier to build your own steps on top of Aruba's API ([msassak])
+* Separate hooks and steps to make it easier to build your own steps on top of
+  Aruba's API ([msassak])
 * @no-clobber to prevent cleanup before each scenario ([msassak])
 
 ## [v0.3.5]
 
-* Store processes in an array to ensure order of operations on Ruby 1.8.x ([#48] [msassak])
+* Store processes in an array to ensure order of operations on Ruby 1.8.x
+  ([#48] [msassak])
 
 ## [v0.3.4]
 
@@ -505,7 +523,8 @@ Please see [CONTRIBUTING.md] on how to contribute to Aruba.
 
 ## [v0.3.3]
 
-* Updated RSpec development requirement to 2.5 ([rspeicher], [msassak], [aslakhellesoy])
+* Updated RSpec development requirement to 2.5 ([rspeicher], [msassak],
+  [aslakhellesoy])
 * Updated RubyGems dependency to 1.6.1 ([rspeicher])
 
 ## [v0.3.2]
@@ -525,18 +544,22 @@ Please see [CONTRIBUTING.md] on how to contribute to Aruba.
 
 ## [v0.2.8]
 
-* Replaced background_process with childprocess, a cross-platform process control library. This will allow Aruba to run on Windows and JRuby in addition to *nix MRI. ([#16], [#27], [#31], [msassak], [jarib], [mattwynne], [aknuds1])
+* Replaced background_process with childprocess, a cross-platform process control
+  library. This will allow Aruba to run on Windows and JRuby in addition to \*nix
+  MRI. ([#16], [#27], [#31], [msassak], [jarib], [mattwynne], [aknuds1])
 
 ## [v0.2.7]
 
 * Upgrade to Cucumber 0.10.0. ([aslakhellesoy])
-* require 'aruba' does nothing - you have to require 'aruba/cucumber' now. This is to prevent bundler from loading it when we don't want to. ([aslakhellesoy])
+* require 'aruba' does nothing - you have to require 'aruba/cucumber' now. This
+  is to prevent bundler from loading it when we don't want to. ([aslakhellesoy])
 * Outputting a lot of data causes process to time out ([#30], [msassak])
 
 ## [v0.2.6]
 
-* You can set @aruba_timeout_seconds in a Before hook to tell Aruba to wait for a process to complete. Default: 1 second. ([aslakhellesoy])
-* Fixed small bug in /^the stdout should contain exactly:$/ ([aslakhellesoy])
+* You can set `@aruba_timeout_seconds` in a Before hook to tell Aruba to wait
+ for a process to complete. Default: 1 second. ([aslakhellesoy])
+* Fixed small bug in `/^the stdout should contain exactly:$/` ([aslakhellesoy])
 
 ## [v0.2.5]
 
@@ -547,18 +570,22 @@ Please see [CONTRIBUTING.md] on how to contribute to Aruba.
 * Added /it should pass with exactly:/ ([aslakhellesoy])
 * @announce, @announce-dir and @announce-cmd for interactive processes ([msassak])
 * Add step defs for detecting output, stdout and stderr by process name ([msassak])
-* Stop all processes before verifying filesystem changes to ensure async operations are complete ([#17], [msassak])
+* Stop all processes before verifying filesystem changes to ensure async operations
+  are complete ([#17], [msassak])
 * Outputting large amounts of data causes run steps to hang ([#18], [msassak])
 
 ## [v0.2.4]
 
-* Added step definitions for removing files and checking presence of a single file. ([aslakhellesoy])
+* Added step definitions for removing files and checking presence of a single
+  file. ([aslakhellesoy])
 
 ## [v0.2.3]
 
 * Directory should not exist gives false-positive ([#13], [#15], [nruth])
-* Added step definitions for comparing file contents with regexps ([#9], [aslakhellesoy])
-* Always put ./bin at the beginning of $PATH to make it easier to run own executables ([#7], [aslakhellesoy])
+* Added step definitions for comparing file contents with regexps ([#9],
+  [aslakhellesoy])
+* Always put ./bin at the beginning of $PATH to make it easier to run own
+  executables ([#7], [aslakhellesoy])
 * Communication with interactive processes ([#4], [msassak])
 * Remove hyphens separating stdout and stderr ([aknuds1])
 
@@ -577,29 +604,29 @@ Please see [CONTRIBUTING.md] on how to contribute to Aruba.
 * Added aruba.gemspec. ([dchelimsky])
 * Several step definitions regarding output have changed. ([#1], [aslakhellesoy])
 
-    - /^I should see "([^\"]*)"$/
-    + /^the output should contain "([^"]*)"$/
+      - /^I should see "([^\"]*)"$/
+      + /^the output should contain "([^"]*)"$/
 
-    - /^I should not see "([^\"]*)"$/
-    + /^the output should not contain "([^"]*)"$/
+      - /^I should not see "([^\"]*)"$/
+      + /^the output should not contain "([^"]*)"$/
 
-    - /^I should see:$/
-    + /^the output should contain:$/
+      - /^I should see:$/
+      + /^the output should contain:$/
 
-    - /^I should not see:$/
-    + /^the output should not contain:$/
+      - /^I should not see:$/
+      + /^the output should not contain:$/
 
-    - /^I should see exactly "([^\"]*)"$/
-    + /^the output should contain exactly "([^"]*)"$/
+      - /^I should see exactly "([^\"]*)"$/
+      + /^the output should contain exactly "([^"]*)"$/
 
-    - /^I should see exactly:$/
-    + /^the output should contain exactly:$/
+      - /^I should see exactly:$/
+      + /^the output should contain exactly:$/
 
-    - /^I should see matching \/([^\/]*)\/$/
-    + /^the output should match \/([^\/]*)\/$/
+      - /^I should see matching \/([^\/]*)\/$/
+      + /^the output should match \/([^\/]*)\/$/
 
-    - /^I should see matching:$/
-    + /^the output should match:$/
+      - /^I should see matching:$/
+      + /^the output should match:$/
 
 ## [v0.1.9]
 
@@ -618,7 +645,8 @@ Please see [CONTRIBUTING.md] on how to contribute to Aruba.
 
 ## [v0.1.6]
 
-* When /^I successfully run "(.*)"$/ now prints the combined output if exit status is not 0. ([aslakhellesoy])
+* `When /^I successfully run "(.*)"$/` now prints the combined output if exit
+  status is not 0. ([aslakhellesoy])
 * Add bundle to list of common ruby scripts. ([aslakhellesoy])
 
 ## [v0.1.5]
@@ -660,6 +688,7 @@ Please see [CONTRIBUTING.md] on how to contribute to Aruba.
 [aslakhellesoy]: https://github.com/aslakhellesoy
 [davetron5000]:  https://github.com/davetron5000
 [dchelimsky]:    https://github.com/dchelimsky
+[doudou]:        https://github.com/doudou
 [e2]:            https://github.com/e2
 [greyblake]:     https://github.com/greyblake
 [hectcastro]:    https://github.com/hectcastro
@@ -684,8 +713,17 @@ Please see [CONTRIBUTING.md] on how to contribute to Aruba.
 
 <!-- issues -->
 
+[#546]: https://github.com/cucumber/aruba/pull/546
+[#544]: https://github.com/cucumber/aruba/pull/544
+[#543]: https://github.com/cucumber/aruba/pull/543
+[#541]: https://github.com/cucumber/aruba/pull/541
+[#540]: https://github.com/cucumber/aruba/pull/540
+[#537]: https://github.com/cucumber/aruba/pull/537
+[#536]: https://github.com/cucumber/aruba/pull/536
+[#535]: https://github.com/cucumber/aruba/pull/535
+[#517]: https://github.com/cucumber/aruba/pull/517
 [#494]: https://github.com/cucumber/aruba/pull/494
-[#492]: https://github.com/cucumber/aruba/pull/492
+[#493]: https://github.com/cucumber/aruba/pull/493
 [#491]: https://github.com/cucumber/aruba/pull/491
 [#487]: https://github.com/cucumber/aruba/pull/487
 [#482]: https://github.com/cucumber/aruba/pull/482
