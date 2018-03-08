@@ -1,12 +1,12 @@
-# CHANGE LOG
+# CHANGELOG
 
 All notable changes to this project will be documented in this file.
 
-This project will adhere to [Semantic Versioning] once version 1.0.0 is released.
+This project will adhere to [Semantic Versioning][1] once version 1.0.0 is released.
 
-This document is formatted according to the principles of [Keep A CHANGELOG].
+This document is formatted according to the principles of [Keep A CHANGELOG][2].
 
-Please see [CONTRIBUTING.md] on how to contribute to Aruba.
+Please see [CONTRIBUTING.md][3] on how to contribute to Aruba.
 
 ## [Unreleased]
 
@@ -951,6 +951,6 @@ Please see [CONTRIBUTING.md] on how to contribute to Aruba.
 
 <!-- Other links -->
 
-[Semantic Versioning]:  http://semver.org
-[Keep A CHANGELOG]:     http://keepachangelog.com)
-[CONTRIBUTING.md]:      https://github.com/cucumber/aruba/blob/master/CONTRIBUTING.md
+[1]:  http://semver.org
+[2]:  http://keepachangelog.com)
+[3]:  https://github.com/cucumber/aruba/blob/master/CONTRIBUTING.md
