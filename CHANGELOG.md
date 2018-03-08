@@ -19,34 +19,43 @@ This document is formatted according to the principles of [Keep A CHANGELOG][2].
 
 * Improve output of `#have_output` matcher ([#546] by [mvz])
 * Update dependencies ([#511], [#541] by [mvz])
+* Relax dependency on contract ([#528] by [maxmeyer])
 * Make forgetting setup_aruba a hard failure ([#510] by [mvz])
 * Improve documentation for users and developers ([#454], [#456], [#457], [#460],
-  [#459], [#461], [#494] by [olleolleolle], [maxmeyer], [mvz])
-* Rename History.md to CHANGELOG.md and fix links and formatting, etc. to bring
-  it in line with [cucumber/cucumber#521] ([#481], [#482] by [jaysonesmith])
+  [#459], [#461], [#475], [#494] by [olleolleolle], [maxmeyer], [mvz])
 
 ### Removed
 
-* Remove cucumber features related to Aruba development ([#522], [#543], [#544] [mvz])
-* Remove deprecated functionality and related feature files ([#488], [#508] by [mvz])
-* Remove development gems for unsupported Rubinius platform ([#464] by [maxmeyer])
+* Remove deprecated functionality ([#483], [#488], [#508] by [mvz])
 
-### Fixed
+### Bug fixes
 
-* Avoid long waits in feature suite ([#544] [mvz])
-* Mark scenarios requiring external commands ([#515] [mvz])
 * Allow slashes in file matching regex ([#512] by [scottj97] with [richardxia])
 * Fix `@no-clobber` breaking process management ([#535] by [doudou])
-* Relax dependency on contract ([#528] by [maxmeyer])
 * Fix command spawning when spaces occur in the path ([#520] by [mvz])
 * Avoid duplicate output appearing in certain cases ([#517] by [maxmeyer] and [mvz])
-* Update RuboCop and fix some offenses ([#514], [#537] by [mvz])
-* Fix YARD documentation issues ([#491] [olleolleolle])
-* Fix Travis-specific build failures ([#476], [#493], [#532] [#536] by
-  [maxmeyer] and [mvz])
 * Fix UTF-8 issues with jRuby ([#462] [stamhankar999])
-* Fix test suite failures ([#452], [#487], [#509] by [maxmeyer] and [mvz])
+
+### Developer experience and internal changes
+
+* Clean up internally used cuke tags and their implementation ([#548] by [mvz])
+* Avoid long waits in feature suite ([#544] [mvz])
+* Remove cucumber features related to Aruba development ([#522], [#543], [#544] [mvz])
+* Mark scenarios requiring external commands ([#515] [mvz])
+* Update RuboCop and fix some offenses ([#514], [#537] by [mvz])
+* Add 'stale' bot ([#507] by [maxmeyer]
 * Documentation fixups ([#504], [#530] by [roschaefer] and [xtrasimplicity])
+* Remove commented-out code ([#498] by [olleolleolle])
+* Fix YARD documentation issues ([#491] [olleolleolle])
+* Maintain Travis builds ([#476], [#493], [#532] [#536], [#542] by
+  [maxmeyer], [mvz] and [#542])
+* Fix test suite failures ([#452], [#487], [#497], [#509] by [maxmeyer] and [mvz])
+* Change maintainership ([#495], [#523] by [maxmeyer])
+* Rename History.md to CHANGELOG.md and fix links and formatting, etc. to bring
+  it in line with [cucumber/cucumber#521] ([#481], [#482] by [jaysonesmith])
+* Restrict branches to run Travis ([#471] by [junaruga])
+* Update license_finder dependency ([#466] by [maxmeyer]
+* Remove development gems for unsupported Rubinius platform ([#464] by [maxmeyer])
 
 ## [v1.0.0-alpha.2]
 
@@ -735,6 +744,7 @@ This document is formatted according to the principles of [Keep A CHANGELOG][2].
 [#530]: https://github.com/cucumber/aruba/pull/530
 [#517]: https://github.com/cucumber/aruba/pull/517
 [#512]: https://github.com/cucumber/aruba/pull/512
+[#511]: https://github.com/cucumber/aruba/pull/511
 [#504]: https://github.com/cucumber/aruba/pull/504
 [#494]: https://github.com/cucumber/aruba/pull/494
 [#493]: https://github.com/cucumber/aruba/pull/493
