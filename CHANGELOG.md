@@ -6,8 +6,6 @@ This project will adhere to [Semantic Versioning][1] once version 1.0.0 is relea
 
 This document is formatted according to the principles of [Keep A CHANGELOG][2].
 
-Please see [CONTRIBUTING.md][3] on how to contribute to Aruba.
-
 ## [Unreleased]
 
 ### Added
@@ -335,7 +333,7 @@ Please see [CONTRIBUTING.md][3] on how to contribute to Aruba.
 * Build with cucumber 1.3.x on ruby 1.8.7, with cucumber 2.x on all other platforms
 * Fixed bugs in aruba's cucumber steps
 * Disable use of `win32/file`
-* Fixed but in `in_current_dir*` not returning the result of the block
+* Fixed bug in `in_current_dir*` not returning the result of the block
 * Fixed checks for file content
 * Fixed selectors for DebugProcess and InProcess to support sub-classes as well
 
