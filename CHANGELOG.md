@@ -45,7 +45,6 @@ This document is formatted according to the principles of [Keep A CHANGELOG][2].
 * Update RuboCop and fix some offenses ([#514], [#537] by [mvz])
 * Add 'stale' bot ([#507] by [maxmeyer]
 * Documentation fixups ([#504], [#530] by [roschaefer] and [xtrasimplicity])
-* Remove commented-out code ([#498] by [olleolleolle])
 * Fix YARD documentation issues ([#491] [olleolleolle])
 * Maintain Travis builds ([#476], [#493], [#532] [#536], [#542] by
   [maxmeyer], [mvz] and [#542])
@@ -56,6 +55,7 @@ This document is formatted according to the principles of [Keep A CHANGELOG][2].
 * Restrict branches to run Travis ([#471] by [junaruga])
 * Update license_finder dependency ([#466] by [maxmeyer]
 * Remove development gems for unsupported Rubinius platform ([#464] by [maxmeyer])
+* Remove commented-out code ([#498] by [olleolleolle])
 
 ## [v1.0.0-alpha.2]
 
